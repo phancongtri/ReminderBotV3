@@ -91,7 +91,7 @@ bot.onText(/\/remove (\d+)/, (msg, match) => {
     bot.sendMessage(chatId, `✅ Đã xóa nhắc nhở: *${removed[0].content}*`, { parse_mode: "Markdown" });
 });
 
-const TelegramBot = require("node-telegram-bot-api");
+let TelegramBot = require("node-telegram-bot-api");
 const express = require("express");
 require("dotenv").config();
 
