@@ -92,3 +92,16 @@ bot.onText(/\/remove (\d+)/, (msg, match) => {
     const removed = reminders[chatId].splice(index, 1);
     bot.sendMessage(chatId, `✅ Đã xóa nhắc nhở: *${removed[0].content}*`, { parse_mode: "Markdown" });
 });
+const express = require("express");
+const app = express();
+
+// Route đơn giản để Render nhận diện bot đang chạy
+app.get("/", (req, res) => {
+    res.send("Bot is running!");
+});
+
+// Lắng nghe trên cổng Render cung cấp
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server đang chạy trên cổng ${PORT}`);
+});
