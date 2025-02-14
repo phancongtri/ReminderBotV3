@@ -1,5 +1,3 @@
-const TelegramBot = require('node-telegram-bot-api');
-
 // Thay token của mày vào đây
 const TOKEN = '7578384719:AAE7BWfKE5BQzQ1ExjFyHJ1zqespNccn-Jc';
 
