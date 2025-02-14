@@ -92,16 +92,21 @@ bot.onText(/\/remove (\d+)/, (msg, match) => {
     const removed = reminders[chatId].splice(index, 1);
     bot.sendMessage(chatId, `✅ Đã xóa nhắc nhở: *${removed[0].content}*`, { parse_mode: "Markdown" });
 });
-const express = require("express");
-const app = express();
 
-// Route đơn giản để Render nhận diện bot đang chạy
+const TelegramBot = require("node-telegram-bot-api");
+const express = require("express");
+require("dotenv").config();
+
+const TOKEN = process.env.BOT_TOKEN;
+const bot = new TelegramBot(TOKEN, { polling: true });
+
+const app = express();
+const PORT = process.env.PORT || 3000;
+
 app.get("/", (req, res) => {
     res.send("Bot is running!");
 });
 
-// Lắng nghe trên cổng Render cung cấp
-const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Server đang chạy trên cổng ${PORT}`);
+    console.log(`Server is running on port ${PORT}`);
 });
